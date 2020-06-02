@@ -20,7 +20,7 @@ class mail_thread(models.AbstractModel):
             fields = self.fields_get()
             dels = [f for f in fields if f in models.LOG_ACCESS_COLUMNS or f.startswith('_') or f == 'id']
             for x in dels:
-                del fields[x]
+                del fields[x]   
             return fields
         else:
-            super(mail_thread, self)._get_tracked_fields()
+            return super(mail_thread, self)._get_tracked_fields()
